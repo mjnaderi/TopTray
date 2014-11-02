@@ -1,1 +1,7 @@
-{"shell-version": ["3.14.1.5"], "uuid": "TopTray@mjnaderi.gmail.com", "name": "TopTray", "description": "Shows legacy tray icons on top panel of Gnome shell (fork of http://94.247.144.115/repo/topicons/)"}
+{
+    "shell-version": ["3.14"],
+    "uuid": "TopTray@mjnaderi.gmail.com",
+    "name": "TopTray",
+    "description": "Shows legacy tray icons on top panel of Gnome shell (fork of http://94.247.144.115/repo/topicons/)",
+    "url": "https://github.com/mjnaderi/TopTray"
+}
