@@ -1,7 +1,7 @@
 <schemalist>
   <schema id="org.gnome.shell.extensions.toptray" path="/org/gnome/shell/extensions/toptray/">
     <key name="icon-size" type="i">
-      <default>16</default>
+      <default>18</default>
       <summary>Icon size</summary>
       <description>Icon size in pixel</description>
     </key>

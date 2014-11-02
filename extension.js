@@ -64,7 +64,7 @@ function onTrayIconAdded(o, icon, role) {
 
     //let scaleFactor = St.ThemeContext.get_for_stage(global.stage).scale_factor;
     //let iconSize = Panel.PANEL_ICON_SIZE * scaleFactor;
-    iconSize = Schema.get_int('icon-size') || 16;
+    iconSize = Schema.get_int('icon-size') || 18;
 
     icon.set_size(iconSize, iconSize);
     box.add_actor(icon);
@@ -189,7 +189,7 @@ function disable() {
 }
 
 function refresh() {
-    iconSize = Schema.get_int('icon-size') || 16;
+    iconSize = Schema.get_int('icon-size') || 18;
     for (let i=0; i<icons.length; i++)
         icons[i].set_size(iconSize, iconSize);
 }
