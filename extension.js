@@ -35,6 +35,8 @@ function init() {
         notificationDaemon = Main.notificationDaemon;
         getSource = Lang.bind(notificationDaemon, NotificationDaemon.NotificationDaemon.prototype._getSource);
     }
+
+    // we need to refresh icons when user changes icon-size in settings
     Schema.connect('changed::icon-size', Lang.bind(this, refresh));
 }
 
