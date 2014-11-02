@@ -12,13 +12,21 @@ const Meta = imports.gi.Meta;
 const Mainloop = imports.mainloop;
 const NotificationDaemon = imports.ui.notificationDaemon;
 
+const ExtensionUtils = imports.misc.extensionUtils;
+const Me = ExtensionUtils.getCurrentExtension();
+const Convenience = Me.imports.convenience;
+
 let trayAddedId = 0;
 let trayRemovedId = 0;
 let getSource = null;
 let icons = [];
 let notificationDaemon;
+let iconSize;
+let Schema;
 
 function init() {
+    Schema = Convenience.getSettings();
+
     if (Main.notificationDaemon._fdoNotificationDaemon) {
         notificationDaemon = Main.notificationDaemon._fdoNotificationDaemon;
         getSource = Lang.bind(notificationDaemon, NotificationDaemon.FdoNotificationDaemon.prototype._getSource);
@@ -27,6 +35,7 @@ function init() {
         notificationDaemon = Main.notificationDaemon;
         getSource = Lang.bind(notificationDaemon, NotificationDaemon.NotificationDaemon.prototype._getSource);
     }
+    Schema.connect('changed::icon-size', Lang.bind(this, refresh));
 }
 
 function enable() {
@@ -51,8 +60,10 @@ function onTrayIconAdded(o, icon, role) {
     let box = buttonBox.actor;
     let parent = box.get_parent();
 
-    let scaleFactor = St.ThemeContext.get_for_stage(global.stage).scale_factor;
-    let iconSize = Panel.PANEL_ICON_SIZE * scaleFactor;
+    //let scaleFactor = St.ThemeContext.get_for_stage(global.stage).scale_factor;
+    //let iconSize = Panel.PANEL_ICON_SIZE * scaleFactor;
+    //let iconSize = 16;
+    iconSize = Schema.get_int('icon-size') || 16;
 
     icon.set_size(iconSize, iconSize);
     box.add_actor(icon);
@@ -174,4 +185,10 @@ function moveToTray() {
 
 function disable() {
     moveToTray();
+}
+
+function refresh() {
+    iconSize = Schema.get_int('icon-size') || 16;
+    for (let i=0; i<icons.length; i++)
+        icons[i].set_size(iconSize, iconSize);
 }
