@@ -4,6 +4,8 @@ Shows legacy tray icons of Gnome shell on top panel. Tested with Gnome 3.14.
 
 Fork of http://94.247.144.115/repo/topicons/. Topicons didn't have an option to set icon size, so I added it.
 
+This is just a try, without any warranty.
+
 # Install
 
 ```shell
