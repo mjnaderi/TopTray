@@ -1,7 +1,7 @@
 // -*- mode: js; js-indent-level: 4; indent-tabs-mode: nil -*-
 
 /*
-    Copyright © (years) (topicons author)
+    Copyright © 2013-2014 Adel Gadllah
     Copyright © 2014 Mohammad Javad Naderi
 
     This program is free software: you can redistribute it and/or modify
