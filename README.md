@@ -19,3 +19,7 @@ You may need to restart the shell (`Alt + F2` then `r`), and enable extension us
 # TODO
 
 Reduce space between icons (Or add an option for it)
+
+# License
+
+GPLv2
